@@ -1,0 +1,55 @@
+\smalltitle{سوال 2}\\
+\smalltitle{الف}\\
+می‌دانیم که
+$\int_{-\infty}^{+\infty} f_x dx = 1$
+است. پس می‌توان از این جا
+$A$
+را بدست آورد.
+\begin{gather*}
+    \int_{-\infty}^{+\infty} f_X(x) = \int_{-\infty}^{+\infty} A e^{-2|x|} dx + \int_{-\infty}^{+\infty} \frac{2}{\sqrt{\pi}} e^{-4x^2} dx = 1
+\end{gather*}
+% https://math.stackexchange.com/a/886561
+به کمک دانش ریاضی 2 جواب
+$I = \int_{-\infty}^{+\infty} e^{-4x^2} dx$
+را بدست می‌آوریم.
+\begin{gather*}
+    I^2 = \int_{-\infty}^{+\infty} e^{-4x^2} dx \times \int_{-\infty}^{+\infty} e^{-4y^2} dy =
+    \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} e^{-4(x^2 + y^2)} dx ~ dy
+\end{gather*}
+حال از تغییر مختصات قطبی استفاده می‌کنیم و
+$x^2+y^2=r^2, dx ~ dy = r ~ d \theta ~ dr $
+قرار می‌دهیم:
+\begin{gather*}
+    I^2 = \int_{0}^{2\pi} \int_{0}^{+\infty}  r e^{-4r^2} dr ~ d \theta = 2\pi \int_{0}^{+\infty}  r e^{-4r^2} dr
+    \stackrel{u=r^2, du = 2r ~ dr}{=}  \pi \int_{0}^{+\infty}  e^{-4u} du =  \pi \frac{-1}{4} (e^{-\infty} - e^0) = \frac{\pi}{4}
+    \\
+    I = \frac{\sqrt{\pi}}{2}
+\end{gather*}
+پس
+$\int_{-\infty}^{+\infty} \frac{2}{\sqrt{\pi}} e^{-4x^2} dx = 1$
+است و باید
+$\int_{-\infty}^{+\infty} A e^{-2|x|} dx = 0$
+باشد. پس
+$A=0$
+است.
+
+حال
+$\mathbb{E}[X] = \int_{-\infty}^{+\infty} x f_X(x) dx = \frac{2}{\sqrt{\pi}} \int_{-\infty}^{+\infty} x e^{-4x^2} dx$
+را حساب می‌کنیم.
+حال اگر دقت کنید متوجه می‌شوید که این تابع یک تابع فرد است! پس انتگرال منفی تا مثبت بی‌نهایت آن برابر 0 است.
+پس
+$\mathbb{E}[X] = 0$
+است. پس داریم (اکثرا با توجه به قسمت قبل):
+\begin{gather*}
+    \operatorname{Var}(X) = \mathbb{E}[X^2] = \int_{-\infty}^{+\infty} x^2 f_X(x)
+    = \frac{2}{\sqrt{\pi}} \int_{-\infty}^{+\infty} x \times (x e^{-4x^2})\\
+    = \frac{2}{\sqrt{\pi}} (x (\frac{-e^{-4x^2}}{8}) \big |_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty} \frac{-e^{-4x^2}}{8} dx)
+    = \frac{2}{\sqrt{\pi}} (0 + \frac{1}{8} \frac{\sqrt{\pi}}{2})\\
+    \implies \mathbb{E}[X^2] = \operatorname{Var}(X) = \frac{1}{8}
+\end{gather*}
+\smalltitle{ب}\\
+\begin{align*}
+    F_Y(y) &= P\{Y < y\}\\
+    &= P\{\sqrt{2|X|-1} < y\}
+\end{align*}
+
