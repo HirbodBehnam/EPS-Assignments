@@ -1,0 +1,67 @@
+\smalltitle{سوال 8}\\
+\smalltitle{الف}\\
+با توجه به داده‌های سوال
+\lr{PDF}
+زمان واکسیناسون هر فرد برابر
+$\frac{1}{\lambda} e^{\frac{-x}{\lambda}}$
+است. حال متغیر‌های زیر را تعریف می‌کنیم:
+\[
+    \begin{array}{ll}
+        T_1: & \text{زمانی که فردی که در باجه‌ی اول است صرف می‌کند}\\
+        T_2: & \text{زمانی که فردی که در باجه‌ی دوم است صرف می‌کند}\\
+        T_m: & \text{زمانی که واکسیناسون ما طول می‌کشد}
+    \end{array}
+\]
+پس باید احتمال
+$P(T_1 > T_2 + T_m) = P(T_1 > T_2) P(T_1 > T_2 + T_m | T_1 > T_2)$
+را باید بدست آوریم.
+در ابتدا احتمال
+$P(T_1 > T_2)$r
+را بدست می‌آوریم:
+(مسئله را فعلا برای حالت کلی $\lambda$ حل می‌کنیم.)
+% https://math.stackexchange.com/a/1332436/424863
+\begin{gather*}
+    P(T_1 > T_2) = \int_{0}^{\infty} f_X(x) P(T_1 > x) dx = \int_{0}^{\infty} \lambda e^{-\lambda x} (1-e^{-\lambda x}) dx
+    = (-e^{- \lambda x} + 0.5e^{-2 \lambda x}) \big |_0^{\infty} = 0.5
+\end{gather*}
+حال
+\lr{memoryless}
+بودن توزیع نمایی را اثبات می‌کنیم. در ابتدا فرض می‌کنیم
+$P(X > t) = S(t)$
+است. پس
+$S(t) = 1 - (1 - e^{-\lambda t}) = e^{-\lambda t}$
+حال دقت کنید که
+$S(t) = S(1)^t = S(1) \times \cdots \times S(1)$
+است. این نتیجه می‌دهد که
+$S(a + b) = S(a)S(b)$
+است. پس داریم:
+$\frac{S(a+b)}{S(a)} = S(b) \implies \frac{P(X > a+b)}{P(X > a)} = P(X > a + b | X > a) = P(X > b)$
+پس با توجه به این موضوع، طبق احتمال
+$P(T_1 > T_2)$
+می‌توانیم بنویسیم:
+\begin{gather*}
+    P(T_1 > T_2 + T_m | T_1 > T_2) = P(T_1 > + T_m) = 0.5\\
+    \implies P(T_1 > T_2 + T_m) = P(T_1 > T_2) P(T_1 > T_2 + T_m | T_1 > T_2) = 0.5 \times 0.5 = 0.25
+\end{gather*}
+\smalltitle{ب}\\
+% https://llc.stat.purdue.edu/2014/41600/notes/prob3205.pdf
+در ابتدا باید
+$\mathbb{E} [\min (T_1, T_2)]$
+را بدست بیاوریم. برای این کار ابتدا
+$\operatorname{CDF} (\min (T_1, T_2))$
+را بدست می‌آوریم. برای این کار عدد
+$a > 0$
+را انتخاب می‌کنیم.
+\begin{gather*}
+    P(\min (T_1, T_2) > a) = P(T_1 > a, T_2 > a) \stackrel{\text{independence}}{=} P(T_1 > a) P(T_2 > a)\\=
+    (1 - (1 - e^{-a\frac{1}{\lambda}})) (1 - (1 - e^{-a\frac{1}{\lambda}})) = e^{-2a\frac{1}{\lambda}}
+    \sim \operatorname{Exp}(\frac{2}{\lambda})
+\end{gather*}
+پس طبق خواص توزیع نمایی می‌دانیم که
+$\mathbb{E} [\min (T_1, T_2)] = \frac{\lambda}{2}$
+است. همچنین امیدریاضی زمان واکسیناسون خود ما
+$\lambda$
+است. پس مدت زمانی که در مرکز هستیم برابر است با
+$\frac{\lambda}{2} + \lambda = \frac{3\lambda}{2}$
+
+

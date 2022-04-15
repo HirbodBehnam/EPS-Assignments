@@ -48,8 +48,33 @@ $\mathbb{E}[X] = 0$
     \implies \mathbb{E}[X^2] = \operatorname{Var}(X) = \frac{1}{8}
 \end{gather*}
 \smalltitle{ب}\\
-\begin{align*}
-    F_Y(y) &= P\{Y < y\}\\
-    &= P\{\sqrt{2|X|-1} < y\}
-\end{align*}
+در کلاس حل تمرین یاد گرفتیم:
+\begin{gather*}
+    f_Y(y) = \sum f_X(g_i^{-1}(y)) |\frac{d}{dy} g_i^{-1}(y)|
+\end{gather*}
+عملا کاری که باید انجام بدهیم این است که تابع تبدیل کننده‌ی متغیر تصادفی
+$X$ به $Y$
+که همان
+$g(x)$
+است را به بازه‌های اکیدا یکنوا بشکنیم و سپس آن‌ها را در این فرمول جایگزین کنیم.
+پس بازه‌ی
+$(-\infty, +\infty)$
+را به صورت زیر افراز می‌کنیم:
+(دقت کنید که در بازه‌ی
+$[-0.5, 0.5]$
+تابع اکیدا یکنوا نیست.)
+% http://cknudson.com/StudentWork/Transforms.pdf
+\[
+    \begin{array}{lll}
+       A_0 = (-\infty, -0.5) & g_1(x) = \sqrt{-2x - 1} & g_1^{-1}(x) = \frac{x^2 + 1}{2}\\
+       A_1 = (0.5, \infty) & g_2(x) = \sqrt{2x - 1}  & g_2^{-1}(x) = -\frac{x^2 + 1}{2}
+    \end{array}
+\]
+پس داریم:
+\begin{gather*}
+    f_Y(y) = \frac{2}{\sqrt{\pi}}e^{-4(\frac{y^2 + 1}{2})^2} |y|
+    + \frac{2}{\sqrt{\pi}}e^{-4(-\frac{y^2 + 1}{2})^2} |-y|
+    = \frac{4}{\sqrt{\pi}}e^{-(y^2 + 1)^2} |y|
+\end{gather*}
+
 

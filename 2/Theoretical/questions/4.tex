@@ -1,0 +1,30 @@
+\smalltitle{سوال 4}\\
+\smalltitle{الف}\\
+باید عملا
+$P(X + Y = k)$
+را بدست بیاوریم. برای این کار از قانون احتمال کل و شرطی استفاده می‌کنیم:
+\begin{gather*}
+    P(X + Y = k) = \sum_{i=0}^k P(X + Y = k | X = i) P(X = i) = \sum_{i=0}^k P(Y = k - i | X = i) P(X = i)\\
+    \stackrel{\text{Independence}}{=} \sum_{i=0}^k P(Y = k - i) P(X = i) = \sum_{i=0}^k \frac{\lambda_2^{k-i} e^{-\lambda_2}}{(k-i)!} \frac{\lambda_1^k e^{-\lambda_1}}{k!} \\
+    = e^{-(\lambda_1 + \lambda_2)} \sum_{i=0}^k \frac{\lambda_2^{k-i} \lambda_1^k}{k!(k-i)!} = \frac{e^{-(\lambda_1 + \lambda_2)}}{k!} \sum_{i=0}^k {k \choose i} \lambda_2^{k-i} \lambda_1^k
+    = \frac{e^{-(\lambda_1 + \lambda_2)} (\lambda_1 + \lambda_2)^k}{k!}
+\end{gather*}
+پس در نتیجه
+$X + Y \sim Poiss(\lambda_1 + \lambda_2)$
+است.
+\\\smalltitle{ب}\\
+% https://www.youtube.com/watch?v=DXkoD0MaW_U
+دقت کنید که در ابتدا احتمال اینکه در 20 دقیقه‌ی اول کسی وارد شیرینی فروشی نشده باشد با اینکه در 10 دقیقه‌ی
+بعد تنها یک نفر وارد شیرینی فروشی شده باشد مستقل است. پس عملا باید احتمال این را حساب کنیم که در 10 دقیقه
+تنها یک نفر وارد شیرینی فروشی شده باشد. پس طبق قسمت قبل متغیر تصادفی
+$Z$
+که نشان دهنده‌ی وارد شدن
+$x$
+نفر در ده دقیقه است از توضیح
+\lr{poisson}
+با
+$\lambda = \frac{10}{60} (10 + 20) = 5$.
+پس در نتیجه
+\begin{gather*}
+    P(Z = 1) = \frac{5 e^{-5}}{1!} = 5 e^{-5}
+\end{gather*}
