@@ -16,3 +16,18 @@ data_frame <- melt(data_frame)
 ggplot(data_frame, aes(value, colour = variable)) +
     geom_density() +
     xlab("x")
+
+# Mostly from https://gist.github.com/arai17/fd3f481e6c2321b777aa0124a4deaf8a
+data_frame <- data.frame(
+    x = 1:15,
+    y = sapply(1:15, function(i) mean(unlist(
+        lapply(data, function(ary) ary[i])
+    ))),
+    yend = rep(0, 15)
+)
+ggplot(data_frame, aes(x = x, y = y, xend = x, yend = yend)) +
+    geom_point() +
+    geom_smooth() +
+    scale_x_continuous(name = "Index of element",
+        breaks = 1:15) +
+    scale_y_continuous(name = "Mean")
