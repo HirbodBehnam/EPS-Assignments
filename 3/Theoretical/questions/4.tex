@@ -1,0 +1,43 @@
+\smalltitle{سوال 4}\\
+فرض می‌کنیم که
+$Z = \frac{X^2}{Y}$
+است و سعی می‌کنیم که
+\lr{CDF}
+آنرا بدست بیاوریم. دقت کنید که 
+$x$
+نمی‌تواند کمتر از 0 باشد به خاطر توزیع‌اش.
+\begin{gather*}
+    P(\frac{x^2}{y} < z) = \int_0^{1} \int_{0}^{\sqrt{yz}} f_{X,Y}(x,y) ~ dxdy \stackrel{\text{independance}}{=} =
+    \int_0^{1} \int_{0}^{\sqrt{yz}} f_X(x)f_Y(y) ~ dxdy =\\
+    \int_0^{1} \int_{0}^{\sqrt{yz}} 1 \times \frac{1}{4} ~ dxdy = \frac{\sqrt{z}}{6} \implies
+    f_Z(z) = \frac{d}{dz} \frac{\sqrt{z}}{6} = \frac{1}{12 \sqrt{z}}
+\end{gather*}
+دقت کنید که این
+\lr{PDF}
+فقط مربوط به
+$z < 16$
+است. چرا که در صورتی که
+$z > 16$
+باشد، ممکن است که یک سری
+$y$
+انتخاب شوند که
+$\sqrt{yz} > 4$
+شود که در این صورت از محدوده‌ی
+$x$
+خارج می‌شود. در صورتی که
+$z > 16$
+باشد،
+\lr{CDF}
+تابع به صورت زیر بدست می‌آید:
+\begin{gather*}
+    \int_0^{\frac{16}{z}} \int_{0}^{\sqrt{yz}} f_X(x)f_Y(y) ~ dxdy + \int_{\frac{16}{z}}^1 1 ~ dy
+    = \frac{32}{3z} + (1 - \frac{16}{z}) = 1 - \frac{16}{3z}\\
+    \implies f_Z(z) = \frac{d}{dz} 1 - \frac{16}{3z} = \frac{16}{3z^2}
+\end{gather*}
+دقت کنید که دلیل اینکه داخل انتگرال جلویی یک است تابع
+$F_X(x)$
+در بازه‌ی
+$x \ge 1$
+است که برابر 1 می‌شود.
+
+

@@ -1,0 +1,1 @@
+mean(runif(1000, min = -1, max = 1) ^ 2)

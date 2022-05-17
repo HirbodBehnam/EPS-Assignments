@@ -1,0 +1,57 @@
+\smalltitle{سوال 2}\\
+\smalltitle{الف}
+% https://www.ma.imperial.ac.uk/~ayoung/m2s1/Covariancecalculations.PDF
+% https://math.stackexchange.com/q/1006893/424863
+\begin{gather*}
+    \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} f_{X,Y}(x,y) ~ dx dy = 1 \implies
+    \int_{0}^{2} \int_{x}^{2} ay ~ dy dx = \frac{8a}{3} = 1 \implies a = \frac{3}{8}
+\end{gather*}
+حال برای حساب کردن
+\lr{cov}
+داریم:
+\begin{gather*}
+    f_X(x) = \int_{x}^{2} ay ~ dy = 2a - \frac{ax^2}{2}\\
+    \mathbb{E} [X] = \int_0^2 x f_X(x) ~ dx = \int_0^2 2ax - \frac{ax^3}{2} ~ dx = 2a = \frac{3}{4}\\
+    f_Y(y) = \int_{0}^{y} ay ~ dx = ay^2\\
+    \mathbb{E} [Y] = \int_0^2 y f_Y(y) ~ dy = \int_0^2 ay^3 ~ dy = 4a = \frac{3}{2}\\
+    \mathbb{E} [XY] = \int_{0}^{2} \int_{x}^{2} xy f_{X,Y}(x,y) ~ dydx =
+    \int_{0}^{2} \int_{x}^{2} axy^2 ~ dydx = \frac{16a}{5} = \frac{6}{5}\\
+    \operatorname{Cov}(X,Y) = \mathbb{E} [XY] - \mathbb{E} [X] \mathbb{E} [Y] = \frac{6}{5} - \frac{3}{4} \frac{3}{2} = 
+    \frac{6}{5} - \frac{9}{8} = \frac{3}{40}
+\end{gather*}
+\smalltitle{ب}
+\begin{gather*}
+    \rho (X + Y, X - Y) = \frac{\operatorname{Cov}(X+Y,X-Y)}{\sqrt{\operatorname{Var}(X+Y) \operatorname{Var}(X-Y)}}
+\end{gather*}
+از قوانین
+\lr{covariance}
+می‌دانیم که:
+\begin{gather*}
+    \operatorname{Cov}(X+Y,X-Y) = \operatorname{Cov}(X,X-Y) + \operatorname{Cov}(Y,X-Y) =\\
+    \operatorname{Cov}(X,X) - \operatorname{Cov}(X,Y) + \operatorname{Cov}(Y,X) - \operatorname{Cov}(Y,Y) =\\
+    \operatorname{Var}(X) - \operatorname{Cov}(X,Y) + \operatorname{Cov}(X,Y) - \operatorname{Var}(Y) = \operatorname{Var}(X) - \operatorname{Var}(Y)
+\end{gather*}
+برای حساب کردن
+$\operatorname{Var}(X)$ و $\operatorname{Var}(Y)$
+باید
+$\mathbb{E} [X^2]$ و $\mathbb{E} [Y^2]$
+را حساب کنیم. بر اساس
+\lr{LOTUS}
+داریم:
+\begin{gather*}
+    \mathbb{E} [X^2] = \int x^2 f_X(x) ~ dx = \int_0^2 2ax^2 - \frac{ax^4}{2} ~ dx = \frac{32a}{15} = \frac{4}{5}\\
+    \mathbb{E} [Y^2] = \int y^2 f_Y(y) ~ dy = \int_0^2 ay^4 ~ dy = \frac{32a}{5} = \frac{12}{5}\\
+    \operatorname{Var}(X) = \mathbb{E} [X^2] - \mathbb{E} [X] = \frac{4}{5} - (\frac{3}{4})^2 = \frac{19}{80}\\
+    \operatorname{Var}(Y) = \mathbb{E} [Y^2] - \mathbb{E} [Y] = \frac{12}{5} - (\frac{3}{2})^2 = \frac{3}{20}\\
+    \operatorname{Var}(X) - \operatorname{Var}(Y) = \frac{19}{80} - \frac{3}{20} = \frac{7}{80}
+\end{gather*}
+در نتیجه داریم:
+\begin{gather*}
+    \rho (X + Y, X - Y) = \frac{\frac{7}{80}}{\operatorname{Var}(X-Y)\operatorname{Var}(X+Y)}\\
+    = \frac{\frac{7}{80}}{\sqrt{(\operatorname{Var}(X) + \operatorname{Var}(Y) + 2\operatorname{Cov}(X,Y))(\operatorname{Var}(X) + \operatorname{Var}(Y) - 2\operatorname{Cov}(X,Y))}}\\
+    = \frac{\frac{7}{80}}{\sqrt{(\frac{19}{80} + \frac{3}{20} + \frac{6}{40})(\frac{19}{80} + \frac{3}{20} - \frac{6}{40})}} \approx 0.245
+\end{gather*}
+
+
+
+

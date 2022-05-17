@@ -1,0 +1,60 @@
+\smalltitle{سوال 1}\\
+در ابتدا بدون کاستن از کلیات مسئله فرض می‌کنیم که رخداد‌ها بین ساعت 0 و 1 اتفاق می‌افتند.
+\\\smalltitle{الف}\\
+برای حل این قسمت فرض می‌کنیم که زمان رسیدن هر کس
+$A_1, A_2, A_3$
+باشد. آنگاه داریم
+$M = \min(A_1, A_2, A_3)$ و $S = \max(A_1, A_2, A_3)$.
+مشخص است که داریم:
+\begin{gather*}
+    P(S \leq s) = P(S \leq s, M > m) + P(S \leq s, M \leq m)
+\end{gather*}
+حال سعی می‌کنیم که
+$\text{CDF}(S)$
+را پیدا کنیم. برای این کار داریم
+(دقت کنید که زمان رسیدن‌ها مستقل هستند):
+\begin{gather*}
+    P(S \le s) = P(A_1 \le s)P(A_2 \le s)P(A_3 \le s) = P(A_1 \le s)^3 = s^3
+\end{gather*}
+پس داریم:
+\begin{gather*}
+    P(S \leq s) = P(S \leq s, M > m) + P(S \leq s, M \leq m) \implies\\
+    F_{M,S}(s, m) = s^3 - P(S \leq s, M > m)
+\end{gather*}
+حال دقت کنید
+$P(S \leq s, M > m)$
+بدین معنا است که متغیر‌های ما بین
+$S$ و $M$
+باشند که این برابر است با
+$(s-m)^3$
+از آنجا که متغیر‌ها مستقل هستند.
+پس در نهایت داریم:
+\begin{gather*}
+    F_{M,S}(s, m) = s^3 - (s-m)^3 \stackrel{\frac{\partial^2}{\partial s \partial m}}{\implies}
+    f_{M,S}(s, m) = 6(s-m) \quad 0 < m < s < 1
+\end{gather*}
+\smalltitle{ب}\\
+\begin{gather*}
+    6(s-m) \quad 0 < m < s < 1 \implies \int_m^1 6(s-m) ds = 3m^2 - 6m + 3
+\end{gather*}
+\smalltitle{ج}\\
+عملا باید
+$\mathbb{E} [S - M]$
+را حساب کنیم.
+\begin{gather*}
+    \mathbb{E} [S - M] = \mathbb{E} [S] - \mathbb{E} [M] = \int_0^1 s f_S(s) ~ ds - \int_0^1 m f_M(m) ~ dm
+\end{gather*}
+از قبل حساب کرده بودیم که
+$f_S(s) = \frac{d}{ds} s^3 = 3s^2$
+حال برای حساب کردن
+$F_M(m)$
+داریم:
+\begin{gather*}
+    P(\min(A_1, A_2, A_3) > m) = P(A_1 > m)P(A_2 > m)P(A_3 > m) = P(A_1 > m)^3 = (1 - m)^3\\
+    \implies F_M(m) = 1 - (1 - m)^3 \implies f_M(m) = 3(1-m)^2
+\end{gather*}
+پس برای امیدریاضی داریم:
+\begin{gather*}
+    \int_0^1 s \times 3s^2 ~ ds - \int_0^1 m \times 3(1-m)^2 ~ dm
+    = \frac{3}{4} - \frac{1}{4} = \frac{1}{2}
+\end{gather*}
