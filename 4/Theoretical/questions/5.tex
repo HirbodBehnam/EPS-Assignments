@@ -1,0 +1,11 @@
+\smalltitle{سوال 5}\\
+از نامساوی مارکو می‌دانیم که
+$P(|X| > a) \le \frac{\mathbb{E}(|X|)}{a}$.
+مشخص است که
+$|X| > a \iff |X|^4 > a^4 ~ (a > 0)$.
+پس در نتیجه:
+\begin{gather*}
+    P(|X| > a) = P(|X|^4 > a^4) \le \frac{\mathbb{E}(|X|^4)}{a^4}\\
+    \implies P(|X| > t \sigma) \le \frac{\mathbb{E}(|X|^4)}{(t \sigma)^4} \le \frac{b(\mathbb{E}(X^2))^2}{t^4 \sigma^4}
+    \stackrel{\mathbb{E}(X)^2 = 0}{=} \frac{b(\operatorname{Var}(X))^2}{t^4 \sigma^4} = \frac{b}{t^4}
+\end{gather*}

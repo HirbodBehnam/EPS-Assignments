@@ -1,0 +1,68 @@
+\smalltitle{سوال 4}\\
+\smalltitle{الف}
+% https://math.stackexchange.com/questions/1162965/find-the-expected-number-of-people-who-select-their-own-name-tag
+\lr{indicator variable}
+$X_i$
+را در صورتی برابر یک قرار می‌دهیم که نفر
+$i$ام
+کفش خودش را انتخاب بکند. حال داریم:
+\begin{gather*}
+    \mathbb{E}(X) = \sum_{i=1}^n \mathbb{E}(X_i) = n (0 \times P(X_i = 0) + 1 \times P(X_i = 1))
+    = n \times \frac{1}{n} = 1
+\end{gather*}
+\smalltitle{ب}
+متغیر تصادفی
+$X_{ij}$
+را بدین صورت تعریف می‌کنیم که تنها زمانی یک شود که نفر
+$i$ام
+کفش نفر
+$j$ام
+و نفر
+$j$ام
+کفش نفر
+$i$ام
+را دریافت کرده باشد.
+در این صورت داریم:
+\begin{gather*}
+    \mathbb{E}(X) = \frac{\sum_{i=1}^n \sum_{j=1}^{n (\neq i)} \mathbb{E}(X_{ij})}{2}\\
+    \mathbb{E}(X_{ij}) = \frac{1}{n} \times \frac{1}{n-1}\\
+    \implies \sum_{i=1}^n \sum_{j=1}^{n (\neq i)} \mathbb{E}(X_{ij}) = (n \times (n - 1)) \times (\frac{1}{n} \times \frac{1}{n-1}) = 1\\
+    \implies \mathbb{E}(X) = \frac{1}{2}
+\end{gather*}
+دلیل اینکه نیاز به یک
+$\frac{1}{2}$
+داشتیم این بود که عملا
+$X_{ij}$ با $X_{ji}$
+فرقی ندارد و نباید دو بار شمرده شود. همچنین دقت کنید که
+$X_{ii} = 0$
+است. برای همین در سیگما داخلی نوشته‌ام که
+$j \neq i$
+باید باشد.
+\\\smalltitle{ج}
+فرض می‌کنیم که متغیر تصادفی
+$X_i$
+را طوری تعریف می‌کنیم که فقط زمانی یک باشد که
+$a_i = b_i$
+باشد. با این تعریف می‌توان
+$\mathbb{E}(X)$
+را به صورت
+$\sum_{i=1}^n \mathbb{E}(X_i)$
+نوشت.
+$\mathbb{E}(X)$
+همان امیدریاضی عناصر یونیک در مجموعه‌ی
+$b_i$ها
+می‌باشد. دلیل اینکه می‌توان
+$\mathbb{E}(X)$
+بدین گونه باز کرد این است که در صورتی که در
+$b_i$
+ماکسیموم برابر
+$a_i$
+نباشد، آنگاه ماکسیموم مثلا برابر
+$a_j (j < i)$
+است که در
+$b_j$
+آمده است پس این عدد یونیک نیست. حال خواسته‌ی مسئله را حساب می‌کنیم:
+\begin{gather*}
+    \mathbb{E}(X_i) = \frac{1}{i}\\
+    \sum_{i=1}^n \mathbb{E}(X_i) = \sum_{i=1}^n \frac{1}{i}
+\end{gather*}

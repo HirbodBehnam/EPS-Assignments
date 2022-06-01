@@ -1,0 +1,48 @@
+\smalltitle{سوال 1}\\
+% https://www.lakeheadu.ca/sites/default/files/uploads/77/images/Sedor%20Kelly.pdf
+فرض کنید که داریم:
+\begin{gather*}
+    \bar{X} = \frac{\sum_{i=1}^n X_i}{n}\\
+    Y = \sum_{i=1}^n X_i
+\end{gather*}
+که در آن
+$X_i$
+یک
+\lr{indicator variable}
+است که زمانی یک می‌شود که سکه رو بیاید. آنگاه خواسته‌ی سوال برابر است با:
+\begin{gather*}
+    P(0.46 < \bar{X} < 0.5) > 0.95
+\end{gather*}
+دقت کنید که
+$X_i \sim Bernoulli(0.48)$
+است. حال مسئله را حل می‌کنیم.
+همچنین یک سری از مشخصات مسئله به صورت زیر است:
+\begin{gather*}
+    \mathbb{E}(X_i) = 0.48 \quad \operatorname{Var}(X_i) = 0.48 \times 0.52 = 0.2496\\
+    \mathbb{E}(Y) = n \mathbb{E}(X_i) = 0.48n \quad \operatorname{Var}(Y) = n\operatorname{Var}(X_i) = 0.2496n
+\end{gather*}
+\smalltitle{الف}
+از نامساوی چویشف و قانون اعداد بزرگ داریم:
+\begin{gather*}
+    P(|\bar{X}_n - \mu| < \epsilon) \leq \frac{\sigma^2}{n\epsilon^2} \implies P(|\bar{X} - 0.48| < 0.02) \leq \frac{0.2496}{n(0.02)^2}\\
+    \implies \frac{0.2496}{n(0.02)^2} = 0.05 \implies n = 12480
+\end{gather*}
+\smalltitle{ب}
+\begin{gather*}
+    P(0.46 < \bar{X} < 0.5) = P(0.46 < \frac{Y}{n} < 0.5) = P(0.46n < Y < 0.5n)\\
+    = P(\frac{0.46n - 0.48n}{\sqrt{0.2496n}} < \frac{Y - 0.48n}{\sqrt{0.2496n}} < \frac{0.5n - 0.48n}{\sqrt{0.2496n}})\\
+    = \Phi(\frac{0.02}{\sqrt{0.2496}}\sqrt{n}) - \Phi(-\frac{0.2}{\sqrt{0.2496}}\sqrt{n}) = 2\Phi(\frac{0.02}{\sqrt{0.2496}}\sqrt{n}) - 1\\
+    \implies 2\Phi(\frac{0.02}{\sqrt{0.2496}}\sqrt{n}) - 1 \ge 0.95 \implies \Phi(\frac{0.02}{\sqrt{0.2496}}\sqrt{n}) \ge 0.975\\
+    \implies n \ge 2397.07
+\end{gather*}
+پس باید سکه را
+2398
+بار پرتاب کنیم.
+\\\smalltitle{ج}
+مشخص است که قضیه‌ی حد مرکزی تعداد بار کمتری را مشخص می‌کند برای پرتاب سکه و برای همین بازه‌ی کوچکتری را به ما
+می‌دهد و در نتیجه بهتر است.
+
+
+
+
+

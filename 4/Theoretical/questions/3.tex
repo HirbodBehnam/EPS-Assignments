@@ -1,0 +1,15 @@
+\smalltitle{سوال 3}\\
+اول از همه باید واریانس و امیدریاضی
+$X$
+را بدست بیاوریم.
+\begin{gather*}
+    \mathbb{E}(X) = 10 \times 0.4 + 20 \times 0.2 + 30 \times 0.2 + 50 \times 0.2 = 24\\
+    \mathbb{E}(X^2) = 100 \times 0.4 + 400 \times 0.2 + 900 \times 0.2 + 2500 \times 0.2 = 800\\
+    \operatorname{Var}(X) = 800 - 576 = 224\\
+    \bar{X} = \frac{\sum_{i=1}^{45} X_i}{45} \sim Normal(24, \frac{224}{45})
+\end{gather*}
+حال خواسته‌ی مسئله را بدست می‌آوریم:
+% pnorm(30, mean = 24, sd = sqrt(4.9777))
+\begin{gather*}
+    P(\bar{X} > 30) = 1 - P(\bar{X} < 30) = 1 - 0.9964197 = 0.0035803
+\end{gather*}
