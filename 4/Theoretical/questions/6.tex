@@ -1,0 +1,11 @@
+\smalltitle{سوال 6}\\
+% https://stats.stackexchange.com/a/13377/359756
+دقت کنید که
+$P(X > z) = 1 - F_X(z)$
+است. حال طبق صورت سوال داریم:
+\begin{gather*}
+    1 - F_X(z) \leq e^{-\frac{z}{b}} \stackrel{\text{monotonically increasing}}{\implies}  \int_{0}^{\infty} 1 - F_X(z) ~ dz \leq \int_{0}^{\infty} e^{-\frac{z}{b}} ~ dz\\
+    1 - F_X(z) = P(X\geq z) = \int_z^\infty f_X(t) ~ dt \implies \int_0^\infty 1 - F_X(z) ~ dz = \int_0^\infty P(X\geq z) ~ dz\\
+    = \int_0^\infty \int_z^\infty f_X(t) ~ dt dz = \int_0^\infty \int_0^t f_X(t) ~ dz dt = \int_0^\infty t f_X(t) ~ dt = \mathbb{E}(X)\\
+    \implies \int_{0}^{\infty} 1 - F_X(z) ~ dz \leq \int_{0}^{\infty} e^{-\frac{z}{b}} ~ dz \implies \mathbb{E}(X) \leq b
+\end{gather*}
