@@ -1,0 +1,22 @@
+library(dplyr)
+library(ggplot2)
+vaccination_data <- read.csv("vaccination.csv", header = TRUE)
+# https://stackoverflow.com/a/67826564/4213397
+# https://ggplot2.tidyverse.org/reference/geom_bar.html
+# https://www.marsja.se/r-add-column-to-dataframe-based-on-other-columns-conditions-dplyr/
+classifier <- function(age) {
+    if (12 <= age && age < 18) {
+        return("teenage")
+    }
+    if (18 <= age && age < 40) {
+        return("young")
+    }
+    if (40 <= age && age < 70) {
+        return("adult")
+    }
+    return("old")
+}
+vaccination_data <- vaccination_data %>%
+    mutate(age_group = sapply(age, function(i) classifier(i)))
+print(ggplot(vaccination_data, aes(age_group)) +
+    geom_bar(aes(fill = vaccine_type)))
