@@ -20,3 +20,30 @@ vaccination_data <- vaccination_data %>%
     mutate(age_group = sapply(age, function(i) classifier(i)))
 print(ggplot(vaccination_data, aes(age_group)) +
     geom_bar(aes(fill = vaccine_type)))
+print(ggplot(vaccination_data, aes(vaccine_type)) +
+    geom_bar(aes(fill = vaccine_type)) + facet_wrap(vars(age_group)))
+observations <- sapply(sort(unique(vaccination_data$age_group)), function(age_g) {
+    return(sapply(sort(unique(vaccination_data$vaccine_type)), function(vac_type) {
+        return(nrow(vaccination_data[vaccination_data$vaccine_type == vac_type & vaccination_data$age_group == age_g,]))
+    }))
+})
+print(observations)
+# We use chi-test
+observations <- matrix(observations, ncol = length(unique(vaccination_data$age_group)))
+row_margin <- rowSums(observations)
+column_margin <- colSums(observations)
+total <- sum(observations)
+expected <- observations
+for (i in 1:nrow(observations)) {
+    for (j in 1:ncol(observations)) {
+        expected[i, j] <- row_margin[i] * column_margin[j] / total
+    }
+}
+stat <- sum((observations - expected)^2 / expected)
+p_value <- 1 - pchisq(stat, (nrow(observations) - 1) * (ncol(observations) - 1))
+cat("p value of chi-test is", p_value, "\n")
+if (p.value > 0.05) {
+    print("We can't reject null hypothesis")
+} else {
+    print("We have rejected null hypothesis (they are dependant)")
+}
