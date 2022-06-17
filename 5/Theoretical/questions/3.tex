@@ -1,0 +1,50 @@
+\smalltitle{سوال 3}\\
+در ابتدا دقت کنید که کسر حاصل از تقسیم نقاط درون دایره به کل نقاط برابر
+$\frac{\pi}{4}$
+است. پس دقت کنید که خطا برای
+$\frac{\pi}{4}$
+باید کمتر از
+$0.0025$
+باشد تا خطا برای
+$\pi$
+کمتر از
+$0.01$
+باشد.
+حال متغیر تصادفی
+$X$
+را به صورت 
+$X \sim Bernoulli(\frac{\pi}{4})$
+تعریف می‌کنیم که در آن
+$\pi$ و $\theta$
+مجهول است.
+نکته‌ای که در این سوال باید به آن توجه کنیم این است که
+$\operatorname{Var}(X) = \frac{\pi}{4} (1 - \frac{\pi}{4})$
+است. مشخص است که
+$\max(\operatorname{Var}(X))$
+زمانی اتفاق می‌افتد که
+$\pi = 2$
+باشد
+(دقت کنید که در آزمایش نمی‌دانیم که
+$\pi$
+مساوی چند است و صرفا متغیری است که می‌خواهیم آنرا حدس بزنیم)
+ که در این حالت
+$\sigma^2 = \frac{1}{4}$
+می‌شود.
+پس بازه‌ی اطمینان در بدترین حالت که واریانس بیشینه باشد برابر است با:
+\begin{gather*}
+    \left[\bar{X}- z_{\frac{\alpha}{2}} \frac{\sigma_{max}}{\sqrt{n}} , \bar{X}+ z_{\frac{\alpha}{2}} \frac{\sigma_{max}}{\sqrt{n}}\right] = 
+    \left[\bar{X}- z_{\frac{\alpha}{2}} \frac{\sqrt{\frac{1}{4}}}{\sqrt{n}} , \bar{X}+ z_{\frac{\alpha}{2}} \frac{\sqrt{\frac{1}{4}}}{\sqrt{n}}\right] =
+    \left[\bar{X}- \frac{z_{\frac{\alpha}{2}}}{2\sqrt{n}} , \bar{X}+ \frac{z_{\frac{\alpha}{2}}}{2\sqrt{n}}\right]
+\end{gather*}
+حال طبق چیز‌های گفته شده باید
+$\frac{z_{\frac{\alpha}{2}}}{2\sqrt{n}} = 0.0025$
+باشد. همچنین دقت کنید که
+$z_{\frac{\alpha}{2}} = z_{\frac{0.05}{2}} = z_{0.025} = 1.96$
+است. پس:
+\begin{align*}
+    \frac{z_{\frac{\alpha}{2}}}{2\sqrt{n}} &= 0.0025\\
+    \frac{1.96}{2\sqrt{n}} &= 0.0025\\
+    \frac{0.98}{0.0025} &= \sqrt{n}\\
+    392 &= \sqrt{n}\\
+    153664 &= n
+\end{align*}

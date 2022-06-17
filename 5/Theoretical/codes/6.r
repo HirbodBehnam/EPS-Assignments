@@ -1,0 +1,5 @@
+girls <- c(replicate(18, 1), replicate(82, 0))
+boys <- c(replicate(38, 1), replicate(112, 0))
+print(var(girls))
+print(var(boys))
+print(t.test(x = girls, y = boys, alternative = "two.sided", paired = FALSE))
