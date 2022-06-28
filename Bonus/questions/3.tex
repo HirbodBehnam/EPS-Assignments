@@ -1,0 +1,38 @@
+\smalltitle{سوال 3}\\
+% https://en.wikipedia.org/wiki/Secretary_problem
+% https://sites.cs.ucsb.edu/~suri/ccs130a/OptStopping.pdf
+این مسئله شبیه مسئله‌ی
+\lr{Secretary problem}
+است. روشی که در پیش می‌گیریم این است که برای
+$a$
+برگه‌ی اول چیزی نمی‌گوییم و مینیمم آن‌ها را نگه داری می‌کنیم. بعد از آن، برای اولین برگه‌ای که نمره‌ای آن
+از مینیمم آن
+$a$
+ورقه کمتر بود جمله‌ی
+"دیگر کمتر از این نمی‌شود"
+را می‌گوییم. حال باید حساب کنیم که بهترین
+$a$
+چیست. فرض کنید که در مجموع
+$n$
+ورقه داریم. حال فرض کنید که
+$P(a)$
+برابر است با احتمال اینکه ما
+$a$
+ورقه‌ی اول را رد کرده باشیم و در بعد از آن مینیمم را انتخاب کنیم. داریم:
+\begin{align*}
+    P(a) &= \sum_{i=1}^n P(i\text{min as selected is paper 'th} \cap i\text{min real the is paper 'th})\\
+    &= \sum_{i=1}^n P(i\text{min as selected is paper 'th} | i\text{min real the is paper 'th}) P(i\text{min real the is paper 'th})\\
+    &= \frac{1}{n} \sum_{i=1}^n P(i\text{min as selected is paper 'th} | i\text{min real the is paper 'th})\\
+    &= \frac{1}{n} \left(\sum_{i=1}^{a} 0 + \sum_{i=a+1}^n P(\text{\lr{lowest of first $i$ papers in first $a$ papers}} | i\text{min real the is paper 'th})\right)\\
+    &= \frac{1}{n} \sum_{i=a+1}^n \frac{a}{i} = \frac{a}{n} \sum_{i=a+1}^n \frac{1}{i}
+\end{align*}
+حال باید با توجه به
+$n$
+ ،
+$a$ای را
+انتخاب کنیم که این عبارت مینیمم شود.
+
+
+
+
+

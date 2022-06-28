@@ -1,0 +1,19 @@
+\smalltitle{سوال 1}
+% https://math.stackexchange.com/a/1327759/424863
+\begin{gather*}
+    f(\lambda | x_1, \cdots, x_n) = \frac{f(x_1, \cdots, x_n | \lambda) f(\lambda)}{f(x_1, \cdots, x_n)} \stackrel{i.i.d}{=} \frac{(\prod_{i=1}^n f(x_i|\lambda)) f(\lambda)}{f(x_1, \cdots, x_n)}\\
+    \implies \hat{\lambda}_{MAP}
+    = \stackrel{\lambda}{\text{argmax}} \prod_{i=1}^n f(x_i|\lambda) f(\lambda)
+    = \stackrel{\lambda}{\text{argmax}} \prod_{i=1}^n \lambda e^{-\lambda x_i} f(\lambda)\\
+    = \stackrel{\lambda}{\text{argmax}} \lambda^n e^{-\lambda(\sum_{i=1}^n x_i)} \frac{\lambda^{\alpha-1}(1-\lambda)^{\beta-1}} {B (\alpha,\beta)}\\
+    \stackrel{\ln}{\implies} n\ln(\lambda) + (-\lambda(\sum_{i=1}^n x_i)) + (\alpha-1)\ln(\lambda) + (\beta-1) \ln(1-\lambda) - \ln(B (\alpha,\beta))\\
+    \stackrel{\frac{d}{d \lambda}}{\implies} \frac{n}{\lambda} - \sum_{i=1}^n x_i + \frac{\alpha-1}{\lambda} - \frac{\beta-1}{1-\lambda} = 0
+\end{gather*}
+اگر معادله‌ی فوق را حل کنیم
+$\lambda$
+مورد نظر بدست می‌آید.
+
+
+
+
+

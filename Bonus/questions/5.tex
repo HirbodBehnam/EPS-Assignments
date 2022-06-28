@@ -1,0 +1,27 @@
+\smalltitle{سوال 5}\\
+از لوتوس استفاده می‌کنیم.
+\begin{gather*}
+    \mathbb{E}(|X - Y|) = \sum_{x=1}^n \sum_{y=1}^n |x - y| f_{XY}(X, Y) =
+    \sum_{x=1}^n \sum_{y=1}^n |x - y| \times \frac{1}{n} \times \frac{1}{n} = \frac{1}{n^2} \sum_{x=1}^n \sum_{y=1}^n |x - y|
+\end{gather*}
+\begin{align*}
+    \sum_{i=1}^n\sum_{j=1}^{n}|i-j|
+    &=\sum_{i=1}^n\sum_{j=1}^{i-1}|i-j|
+    +\sum_{i=1}^n\sum_{j=i+1}^{n}|i-j|\\
+    &=\sum_{i=1}^n\sum_{j=1}^{i-1}(i-j)
+    +\sum_{i=1}^n\sum_{j=i+1}^{n}(j-i)\\
+    &=\sum_{i=1}^n\sum_{j=1}^{i-1}j
+    +\sum_{i=1}^n\sum_{j=1}^{n-i}j\\
+    &=\sum_{i=1}^n\frac{i(i-1)}{2}
+    +\sum_{i=1}^n\frac{(n-i)(n-i+1)}{2}\\
+    &=\sum_{i=1}^n\left(\frac{i(i-1)+(n-i)(n-i+1)}{2}\right)\\
+    &=\sum_{i=1}^n\left(\frac{i^2-i+(n-i)^2+(n-i)}{2}\right)\\
+    &=\frac12\sum_{i=1}^n\left(i^2-i+n^2-2ni+i^2+n-i\right)\\
+    &=\frac{n(n^2+n)}{2}+\sum_{i=1}^n\left(i^2-i-2ni\right)\\
+    &=\frac{n(n^2+n)}{2}+\frac{n(n+1)(2n+1)}{6}-(2n+1)\frac{n(n+1)}{2}\\
+    &=\frac{n^3-n}{6}
+\end{align*}
+پس داریم:
+\begin{gather*}
+    \mathbb{E}(|X - Y|) = \sum_{x=1}^n \sum_{y=1}^n |x - y| f_{XY}(X, Y) = \frac{1}{n^2} \frac{n^3-n}{6} = \frac{n^2-1}{3n}
+\end{gather*}

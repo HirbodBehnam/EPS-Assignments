@@ -1,0 +1,19 @@
+\smalltitle{سوال 3}\\
+برای شرکت اول داریم:
+\begin{gather*}
+    \mathcal{L}(x_1,\cdots ,x_{100};\lambda) = \prod_{i=1}^{100} f(x_i)\\
+    P(x_i < 180) \stackrel{\text{exponential CDF}}{=} 1 - e^{-180\lambda} \quad P(x_i \ge 180) = e^{-180\lambda}\\
+    \mathcal{L}(x_i;\lambda) = {100 \choose 32} ( e^{-180\lambda})^{68} (1 - e^{-180\lambda})^{32}\\
+    \stackrel{\ln}{\implies} \ln({100 \choose 32}) + 68 \ln( e^{-180\lambda}) + 32 \ln(1 - e^{-180\lambda})\\
+    = \ln({100 \choose 32}) - 180 \times 68 \times \lambda + 32 (\ln(1 - e^{-180\lambda}))\\
+    \stackrel{\frac{d}{d\lambda}}{\implies} \lambda = 0.00214
+\end{gather*}
+و برای شرکت دوم داریم:
+\begin{gather*}
+    \mathcal{L}(x_1,\cdots ,x_{100};\beta) = \prod_{i=1}^{100} f(x_i)\\
+    P(x_i < 180) \stackrel{\text{exponential CDF}}{=} 1 - e^{-180\lambda} \quad P(x_i \ge 180) = e^{-180\lambda}\\
+    \mathcal{L}(x_i;\lambda) = {100 \choose 32} ( e^{-180\lambda})^{68} (1 - e^{-180\lambda})^{32}\\
+    \stackrel{\ln}{\implies} \ln({100 \choose 32}) + 68 \ln( e^{-180\lambda}) + 32 \ln(1 - e^{-180\lambda})\\
+    = \ln({100 \choose 32}) - 180 \times 68 \times \lambda + 32 (\ln(1 - e^{-180\lambda}))\\
+    \stackrel{\frac{d}{d\lambda}}{\implies} \lambda = 0.00214
+\end{gather*}

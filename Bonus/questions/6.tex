@@ -1,0 +1,15 @@
+\smalltitle{سوال 6}\\
+% https://www.math.arizona.edu/~jwatkins/f-transform.pdf
+برای حساب کردن
+\lr{PDF}، \lr{CDF}
+را حساب می‌کنیم!
+\begin{gather*}
+    P(Y < x) = P(e^X < x) = P(X < \ln(x)) = F_X(\ln(x))\\
+    \stackrel{\frac{d}{dx}}{\implies} f_Y = \frac{1}{x} f_X(\ln(x)) = \frac{1}{x} \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{1}{2}\left(\frac{\ln(x)-\mu}{\sigma}\right)^2}
+\end{gather*}
+حال برای حساب کردن امیدریاضی داریم:
+\begin{gather*}
+    \int_{0}^{\infty} x \frac{1}{x} \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{1}{2}\left(\frac{\ln(x)-\mu}{\sigma}\right)^2} dx =
+    \frac{1}{\sqrt{2 \pi \sigma^2}} \int_{0}^{\infty} e^{-\frac{1}{2}\left(\frac{\ln(x)-\mu}{\sigma}\right)^2} dx\\
+    = e^{\frac{\sigma^2}{2} + \mu}
+\end{gather*}

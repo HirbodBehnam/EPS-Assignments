@@ -1,0 +1,27 @@
+\smalltitle{سوال 8}\\
+% https://math.stackexchange.com/a/4425572/424863
+با توجه به
+\lr{order statistics}
+می‌دانیم که اگر
+$U_1$ تا $U_n$
+متغیر‌های تصادفی یونیفرم بین 0 تا 1 باشند آنگاه داریم:
+(\href{https://books.google.nl/books?id=bSVGAAAAQBAJ&pg=PA43&dq=uniform+order+statistics+representation&hl=en&sa=X&ved=2ahUKEwiTysPzh433AhXO1qQKHYBxA9EQ6AF6BAgIEAI#v=onepage&q=uniform%20order%20statistics%20representation}{منبع})
+\begin{gather*}
+    X_i = \prod_{j=i}^n \sqrt[j]{U_j}
+\end{gather*}
+حال دقت کنید که:
+\begin{gather*}
+    f(X_{i+1})(X_{i+1} - X_i) = f(X_{i+1})(\prod_{j=i+1}^n \sqrt[j]{U_j} - \prod_{j=i}^n \sqrt[j]{U_j})\\
+    = f(X_{i+1})(\prod_{j=i+1}^n \sqrt[j]{U_j} - \prod_{j=i}^n \sqrt[j]{U_j}) = f(X_{i+1}) \prod_{j=i+1}^n \sqrt[j]{U_j} (1-\sqrt[i]{U_i})
+    = f(X_{i+1}) X_{i+1} (1-\sqrt[i]{U_i})\\
+    \stackrel{\mathbb{E}}{\implies} \mathbb{E}\left[f(X_{i+1})(X_{i+1} - X_i)\right] = \mathbb{E}\left[f(X_{i+1}) X_{i+1} (1-\sqrt[i]{U_i})\right]
+    = \mathbb{E}\left[f(X_{i+1}) X_{i+1}\right] \mathbb{E}\left[1-\sqrt[i]{U_i}\right]\\
+    = \frac{1}{i+1} \mathbb{E}\left[f(X_{i+1}) X_{i+1}\right]
+\end{gather*}
+حال سوال را حل می‌کنیم.
+\begin{align*}
+    \mathbb{E}[Y]&= \sum_{i=0}^{n-1}\frac{1}{1+i}\mathbb{E}[f(X_{i+1})X_{i+1}] \\
+    &= \sum_{i=0}^{n-1}\frac{1}{1+i}\int_0^1 f(x)xf_{X_{i+1}}(x)\, dx \\
+    &=\int_0^1 f(x)\sum_{i=1}^n\binom{n}{i}x^{i}(1-x)^{n-i}\, dx \\
+    &=\int_0^1 f(x)(1-(1-x)^n)\, dx
+\end{align*}
