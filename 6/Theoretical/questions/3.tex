@@ -2,7 +2,7 @@
 برای شرکت اول داریم:
 \begin{gather*}
     \mathcal{L}(x_1,\cdots ,x_{100};\lambda) = \prod_{i=1}^{100} f(x_i)\\
-    P(x_i < 180) \stackrel{\text{exponential CDF}}{=} 1 - e^{-180\lambda} \quad P(x_i \ge 180) = e^{-180\lambda}\\
+    P(x_i < 180) \stackrel{\text{exponential CDF}}{=} 1 - e^{-180\lambda} \implies P(x_i \ge 180) = e^{-180\lambda}\\
     \mathcal{L}(x_i;\lambda) = {100 \choose 32} ( e^{-180\lambda})^{68} (1 - e^{-180\lambda})^{32}\\
     \stackrel{\ln}{\implies} \ln({100 \choose 32}) + 68 \ln( e^{-180\lambda}) + 32 \ln(1 - e^{-180\lambda})\\
     = \ln({100 \choose 32}) - 180 \times 68 \times \lambda + 32 (\ln(1 - e^{-180\lambda}))\\
@@ -11,9 +11,22 @@
 و برای شرکت دوم داریم:
 \begin{gather*}
     \mathcal{L}(x_1,\cdots ,x_{100};\beta) = \prod_{i=1}^{100} f(x_i)\\
-    P(x_i < 180) \stackrel{\text{exponential CDF}}{=} 1 - e^{-180\lambda} \quad P(x_i \ge 180) = e^{-180\lambda}\\
-    \mathcal{L}(x_i;\lambda) = {100 \choose 32} ( e^{-180\lambda})^{68} (1 - e^{-180\lambda})^{32}\\
-    \stackrel{\ln}{\implies} \ln({100 \choose 32}) + 68 \ln( e^{-180\lambda}) + 32 \ln(1 - e^{-180\lambda})\\
-    = \ln({100 \choose 32}) - 180 \times 68 \times \lambda + 32 (\ln(1 - e^{-180\lambda}))\\
-    \stackrel{\frac{d}{d\lambda}}{\implies} \lambda = 0.00214
+    P(x_i < 180) \stackrel{\text{gamma CDF}}{=} \frac{1}{\Gamma(2)} \gamma(2, 180 \beta) = \int_0^{180 \beta} t\,e^{-t}\, dt = -(180 \beta + 1) e^{-180 \beta} + 1\\
+    \implies P(x_i \ge 180) = 1 - \gamma(2, 180 \beta) = 1 - \int_0^{180 \beta} t\,e^{-t}\, dt = (180 \beta + 1) e^{-180 \beta}\\
+    \mathcal{L}(x_i;\beta) = {100 \choose 37} ( (180 \beta + 1) e^{-180 \beta} )^{63} (-(180 \beta + 1) e^{-180 \beta} + 1)^{37}\\
+    \stackrel{\ln}{\implies} \ln({100 \choose 37}) + 63 \ln( (180 \beta + 1) e^{-180 \beta}) + 37 \ln(-(180 \beta + 1) e^{-180 \beta} + 1)\\
+    \stackrel{\frac{d}{d\beta}}{\implies} \beta = 0.00717
 \end{gather*}
+% evalf(solve(diff(63 * ln((180*b+1)*exp(-180*b)) + 37*ln(-(180*b+1)*exp(-180*b)+1), b) = 0));
+حال با توجه به
+\lr{CDF}
+حساب می‌کنیم که کدام شرکت بهتر است:
+\begin{align*}
+    P_1(x > 120) &= e^{-120 \times 0.00214} = 0.7735\\
+    P_2(x > 120) &= (120 \times 0.00717 + 1) e^{-120 \times 0.00717} = 0.78693
+\end{align*}
+پس لامپ‌های شرکت دوم احتمال بیشتری دارند که بیشتر از 120 روز عمر کنند.
+
+
+
+

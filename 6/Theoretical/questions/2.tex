@@ -1,0 +1,27 @@
+\smalltitle{سوال 2}\\
+طبق صورت سوال می‌دانیم که
+$Z = X | Y \sim Poisson(\lambda)$
+پیروی می‌کند که
+$\lambda \sim Exp(\frac{1-x}{x})$
+است. حال برای پیدا کردن
+$Z$
+نیز باز باید از قانون احتمال کل استفاده کنیم:
+\begin{gather*}
+    \int_0^{\infty} f(Z | \lambda = a) f(a) \, da =
+    \int_0^{\infty} \frac{a^k e^{-a}}{k!} \times (\frac{1-x}{x}) e^{-\frac{1-x}{x}a}\, da\\
+    = -\frac{x-1}{x ~ k!} \int_0^{\infty} a^k e^{-\frac{a}{x}}\, da
+    = -\frac{x-1}{x ~ k!} (x^k xk \Gamma(k)) = -x^k \frac{x-1}{(k-1)!} \Gamma(k)
+    \stackrel{k \in \mathbb{N}}{=} -x^k (x-1)\\
+    \implies Z \sim x^k (1-x)
+\end{gather*}
+% assume(k>0);
+% assume(x>0, x < 1);
+% int(a^k*exp(-a/x), a=0..infinity);
+حال
+MAP
+را اجرا می‌کنیم.
+\begin{gather*}
+    f_{Y|X}(y|x)f_{X}(x) = x^k \times (1-x) \times 2x\\
+    \implies f_{Y|X}(y|x)f_{X}(x) = x^3 \times (1-x) \times 2x
+    \stackrel{\frac{d}{dx}}{\implies} x = \frac{4}{5}
+\end{gather*}
